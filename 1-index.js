@@ -1,3 +1,5 @@
+// 'use strict';
+
 /*
  * Так як ми працюємо з вебом, рано чи пізно потрібно додавати собі на сторінку скрипти. І якщо ваш проект - це щось трохи більше, ніж маленька сторінка, швидше за все, ви захочете винести той скрипт у окремий файлик. Ну і звісно після того його собі підключити. Думаю, код схожий на <script src="index.js"> буде вам досить знайомий. Але куди правильно помістити цей код? В head? В кінець body? Може варто додати ще якийсь атрибут для способу завантаження скрипта?
 
@@ -5,6 +7,11 @@
 
 На допомогу приходять такі атрибути як async та defer. З англійської вже маємо певне уявлення, що щось буде асинхронним, а щось інше відкладеним. Якщо браузер побачить async, він почне паралельно завантажувати сам скрипт і обробляти html. Коли скрипт буде завантажено, він зупинить обробку html, виконає скрипт, після чого продовжить далі роботу з html. А зустрівши defer, браузер так само паралельно почне завантажувати скрипт, але виконувати його він буде тільки тоді, коли закінчить всю роботу з html. Тому висновок такий - async використовувати тоді, коли немає маніпуляцій з DOM, а defer - коли вони є.
  */
+
+/*
+звертатися до змінної без її оголошення
+*/
+
 /*
  * Базові примітивні типи: number, string, boolean, null и undefined.
  */
@@ -15,26 +22,25 @@
 // https://marketplace.visualstudio.com/items?itemName=akamud.vscode-javascript-snippet-pack
 // https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
 
-// console.log("10");
+// console.log('10');
 // console.log(10);
-// alert("Hello");
+// alert('Hello');
 
 /*
  * Змінні: оголошення з let та const, іменування.
  */
-let userLastName = "";
 
-// console.log(total);
-// const userLastName = 'Bertie';
-
-// userLastName = "Winifred";
+// const userLastName = 'mango';
 
 // console.log(userLastName);
 
 /*
  * Отримання даних: prompt и confirm.
  */
-// const userAge = prompt("Скільки тобі років?");
-// const isAdult = confirm("Вам є 18 років?");
+// const userAge = prompt('Скільки тобі років?');
 
-// console.log(Number(userAge));
+// console.log(userAge);
+
+// const isAdult = confirm('Вам є 18 років?');
+
+// console.log(isAdult);

@@ -1,4 +1,5 @@
-"use strict";
+'use strict';
+//https://marketplace.visualstudio.com/items?itemName=meganrogge.template-string-converter
 // const guestName = "Манго!";
 // console.log(guestName[5]);
 /*
@@ -10,33 +11,38 @@
   ? Hello ім'я_користувача, your age is вік_користувача.
 */
 
-// const username = prompt("Your name?");
-// const age = prompt("Your age?");
-// // const message =
-// //   "Hello" + " " + username + "," + " " + "your age is" + " " + age + ".";
-// https://marketplace.visualstudio.com/items?itemName=meganrogge.template-string-converter
+// const userName = prompt('Your name?');
+// const userAge = prompt('Your age?');
 
-// console.log(message);
+// const message = 'Hello' + ' ' + userName + ' ' + 'your age is' + ' ' + userAge;
+// const message = `Hello ${userName}, your age is ${userAge}`;
 
 //? Виконайте завдання вище, використовуючи шаблонні рядки
 
 /*
  * Властивості та методи рядків
  */
+// const string = 'Welcome to Bahamas!';
+// const find = 'TO'.toLowerCase();
+// console.log(string.toLowerCase().includes(find));
+// console.log(string.length); //21
+// console.log(string.toUpperCase());
 
 //? Запросіть у користувача ім'я та дізнайтесь з кількох символів, що складається з ім'я.
-// const username = prompt("Your name?");
-// console.log(username.length);
+// const userName = prompt('Your name?');
+// console.log(userName.length);
+
 //? Попросіть користувача ввести email і переведіть у нижній регістр.
-// let userEmail = prompt("Your email?");
+
+// let userEmail = prompt('Your email?');
 // userEmail = userEmail.toLowerCase();
 
 // console.log(userEmail);
 
 //? Попросіть користувача ввести email і переведіть у верхній регістр
-// let userEmail = prompt("Your email?");
-// userEmail = userEmail.toUpperCase();
 
+// let userEmail = prompt('Your email?');
+// userEmail = userEmail.toUpperCase();
 // console.log(userEmail);
 
 /*
@@ -45,31 +51,36 @@
   ? Якщо є, дізнайтесь позицію на якій перебувати цей підрядок
 */
 
-let languagesStr = "HTML, CSS, JS, JS, PHP, React, Vue, Node.js, C, C++";
-languagesStr = languagesStr.toLowerCase();
-// console.log(languagesStr);
-// const subStr = "js";
-// const isInclude = languagesStr.includes(subStr);
-// console.log(isInclude);
-// const indexOfSubStr = languagesStr.indexOf(subStr);
+// let languagesStr =
+//   'HTML, CSS, JS, JS, PHP, React, Vue, Node.js, C, C++, Javascript';
 
-// console.log(indexOfSubStr);
+// languagesStr = languagesStr.toLowerCase();
+
+// const findWord = 'CSS'.toLowerCase();
+
+// const inString = languagesStr.indexOf(findWord);
+
+// console.log(inString);
 
 //? У нас є рядок '24px', дізнайтеся на що закінчується цей рядок, на %, rem, em або px;
-// const str = "px24";
-// const subStr = "px";
 
-// console.log(str.startsWith(subStr));
+// const str = '24px';
+// const subStr = 'px';
+// console.log(str.endsWith(subStr));
+// console.log(str.startsWith('24'));
 
 //? У нас є рядок '23,4', замініть кому на крапку
-// let str = "23,4";
-// str = str.replace(",", ".");
-// const cssFileNames = "styles.css, about.css, portfolio.css";
-// const minifiedCssFileNames = cssFileNames.replaceAll(".css", ".min.css");
-// console.log(minifiedCssFileNames);
-// // str = Number.parseFloat(str);
+
+// const str = '23,4,5,6';
+// const srt2 = str.replaceAll(',', '.');
 
 // console.log(str);
+// console.log(srt2);
+
+const cssFileNames = 'styles.css, about.css, portfolio.css';
+
+const minCssFileNames = cssFileNames.replaceAll('.css', '.min.css');
+console.log(minCssFileNames);
 
 /*
   ? У нас є рядок:
