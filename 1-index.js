@@ -31,6 +31,10 @@
  */
 
 // const userLastName = 'mango';
+// const age = 21;
+// const isAdult = true;
+
+// console.log(typeof null);
 
 // console.log(userLastName);
 
