@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*
  * Цикли (while, do while, for)
  */
@@ -11,7 +11,7 @@
 // код, тіло цикла (statement)
 // }
 
-let iterator = 0;
+// let iterator = 0;
 
 // 0 < 5 = true
 // 1 < 5 = true
@@ -21,10 +21,8 @@ let iterator = 0;
 // 5 < 5 = false
 
 // while (iterator < 5) {
-//   console.log("iterator: ", iterator);
-//   console.log("Hello!");
-//   iterator += 1;
-//   console.log("iterator: ", iterator);
+//   console.log('iterator', iterator);
+//   iterator = iterator + 1;
 // }
 
 /*
@@ -33,9 +31,8 @@ let iterator = 0;
 
 // let num = 1;
 
-// while (num <= 50) {
-//   console.log(num);
-
+// while (num < 50) {
+//   console.log('num', num);
 //   // num = num + 1;
 //   num += 1;
 // }
@@ -47,11 +44,12 @@ let iterator = 0;
 // let number = 1;
 // let result = 0;
 
-// while (number <= 100) {
+// while (number < 100) {
 //   // result = result + number;
 //   result += number;
-//   console.log(result);
+
 //   number += 1;
+//   // number = number + 1
 // }
 
 // console.log(result);
@@ -104,35 +102,18 @@ let iterator = 0;
 // тело цикла
 // }
 
-// for (let i = 20; i <= 30; i += 1) {
+// for (let i = 0; i < 5; i += 1) {
 //   console.log(i);
-// }
-
-// for (let i = 0, j = 10; i < j; i += 1, j -= 1) {
-//   console.log(j);
 // }
 
 /*
 ?За допомогою циклу for виведіть парні числа від 2 до 10.
 */
 
-// for (let i = 1; i <= 10; i += 1) {
-// //   if (!(i % 2)) {
-// //     // console.log("i:", i, "i % 2:", i % 2);
-// //     console.log(i);
-// //   }
-//   //   if (i % 2) {
-//   //     continue;
-//   //   }
-//   //   console.log(i);
-// }
-
-// for (let i = 0; i < 10; i += 1) {
-//   if (i === 3) {
-//     console.log("Ми знайшли 3");
-//     break;
+// for (let i = 1; i < 10; i += 1) {
+//   if (i % 2 !== 0) {
+//     continue;
 //   }
-
 //   console.log(i);
 // }
 
@@ -223,31 +204,9 @@ https://calculator888.ru/visokosnyy-god/
  ? *******
  */
 
-// let star = "*";
+let star = '*';
 
-// for (let i = 0; i < 7; i += 1) {
-//   console.log(star);
-//   star += "*";
-// }
-
-// for (let i = 100; i >= 0; i -= 1) {
-//   console.log(i);
-// }
-
-// const number = 20; // 20
-
-// if (true) {
-//   const number = 10; // 10
-
-//   console.log(number); // 10
-// }
-
-// console.log(number); // 20
-
-// for (let i = 100; i >= 0; i -= 1) {
-//   console.log(i);
-// }
-
-// for (let i = 0; i <= 100; i += 1) {
-//   console.log(i);
-// }
+for (let i = 0; i <= 7; i++) {
+  console.log(star);
+  star += '*';
+}

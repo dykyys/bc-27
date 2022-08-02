@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*
  * Розгалуження if
  */
@@ -9,10 +9,10 @@
 
 // const num = 18;
 
-// if (num >= 18) {
-//   console.log("Hello!");
+// if (num > 18) {
+//   console.log('Hi!');
 // } else {
-//   console.log(" Good bye!");
+//   console.log('Good bye!');
 // }
 
 /*
@@ -21,30 +21,32 @@
 ? Якщо це так - виведіть 'так', інакше виведіть 'ні'.
 */
 
-// const str = "abcde";
-// console.log(str.startsWith("a"));
-// if (str.startsWith("a")) {
-//   console.log("Так");
+// const str = 'abcde';
+
+// if (str.includes('t')) {
+//   console.log('Yes!');
 // } else {
-//   console.log("Ні");
+//   console.log('No!');
 // }
 
-// const messege = str.startsWith("a") ? "Yes" : "No";
-
-// console.log(messege);
+// const message = str.includes('d') ? 'Yes' : 'NO!';
+// console.log(message);
 
 /*
 ? Запросити у користувача число, якщо число дорівнює 10,
 ? то виведіть 'Вірно', інакше виведіть 'Неправильно'.
 */
 
-// const number = Number(prompt("Введіть число"));
+// const userInput = Number(prompt('Введіть число'));
 
-// if (number === 10) {
-//   console.log("Вірно");
+// if (userInput === 10) {
+//   alert('Вірно');
 // } else {
-//   console.log("Невірно");
+//   alert('Непрвильно');
 // }
+
+// const message = typeof userInput === 'number' ? 'Вірно' : 'Невірно';
+// alert(message);
 
 /*
 ? У змінній min лежить число від 0 до 59.
@@ -55,18 +57,18 @@
 ? [45 до 60) – четверта чверть години
 */
 
-// const min = 61;
+// const min = 21;
 
 // if (min >= 0 && min < 15) {
-//   console.log("перша чверть години");
+//   console.log('перша чверть години');
 // } else if (min >= 15 && min < 30) {
-//   console.log("друга чверть години");
+//   console.log('друга чверть години');
 // } else if (min >= 30 && min < 45) {
-//   console.log("третя чверть години");
+//   console.log('третя чверть години');
 // } else if (min >= 45 && min < 60) {
-//   console.log("четверта чверть години");
+//   console.log('четверта чверть години');
 // } else {
-//   console.log("Ви не потрапили в діапозон години!");
+//   console.log('Вийшли за діапазон години!');
 // }
 
 /*
@@ -76,20 +78,21 @@
 ? то показати: «Вірно!», інакше – відобразити: «Не знаєте? ECMAScript!
 */
 
-// const userInput = prompt("Яка «офіційна» назва JavaScript?");
+// const userInput = prompt('Яка «офіційна» назва JavaScript?');
+// const normalizeUserInput = userInput.toLowerCase().trim();
 
-// const ofName = "ECMAScript".toLowerCase();
-
-// // const userInputModify = userInput.toLowerCase().trim();
-
-// const userInputToLowerCase = userInput.toLowerCase();
-// const userInputToLowerCaseWithoutSpase = userInputToLowerCase.trim()
-
-// if (userInputToLowerCaseWithoutSpase === ofName) {
-//   console.log("Вірно!");
+// if (userInput === 'ECMAScript') {
+//   console.log('Вірно!');
 // } else {
-//   console.log("Не знаєте? ECMAScript!");
+//     console.log('Не знаєте? ECMAScript!');
 // }
+
+// const NAME_JAVA_SCRIPT = 'ECMAScript'.toLowerCase();
+
+// const message =
+//   normalizeUserInput === NAME_JAVA_SCRIPT ? 'Вірно!' : 'Не знаєте? ECMAScript!';
+
+// console.log(message);
 
 /*
 ? Напишіть код, який отримує число через prompt, а потім виводить у console.log:
@@ -99,11 +102,11 @@
 ? Передбачається, що користувач вводить лише цифри.
 */
 
-// const number = Number(prompt("Введіть число"));
+// const userInput = Number(prompt('Введіть число!'));
 
-// if (number > 0) {
+// if (userInput > 0) {
 //   console.log(1);
-// } else if (number < 0) {
+// } else if (userInput < 0) {
 //   console.log(-1);
 // } else {
 //   console.log(0);
@@ -114,25 +117,17 @@
 ? який браузер у користувача, результат вивести в консоль
 */
 
-// const userBrowser = navigator.userAgent;
-// console.log(userBrowser);
-// console.log(userBrowser.includes("Chrome"));
-// console.log(userBrowser.includes("Safari"));
-// // if (userBrowser.includes("IE")) {
-// //   console.log("Браузер Chrome");
-// // } else if (userBrowser.includes("Safari")) {
-// //   console.log("Браузер Safari");
-// // }
-
-// let message = "Вашого браузера в нашому скиску немає";
-
-// if (userBrowser.includes("IE")) {
-//   message = "Браузер IE";
-// } else if (userBrowser.includes("Opera")) {
-//   message = "Браузер Opera";
+// const userBrouser = navigator.userAgent;
+// console.log(userBrouser);
+// if (userBrouser.includes('Mozilla')) {
+//   console.log('Браузер Mozilla');
+// } else if (userBrouser.includes('Chrome')) {
+//   console.log('Браузер Chrome');
+// } else if (userBrouser.includes('IE')) {
+//   console.log('Браузер IE');
+// } else {
+//   console.log('Вашого браузера в нашому скиску немає');
 // }
-
-// console.log(message);
 
 /*
  * Switch case
@@ -155,41 +150,64 @@
 ? Перепишіть код за допомогою однієї конструкції switch:
 */
 
-// const number = 4;
-
-// let message = "";
+// const number = 9;
 
 // switch (number) {
 //   case 1:
-//     message = "Змінна number має значення 1";
+//     console.log('Змінна number має значення 1');
 //     break;
 //   case 2:
-//     message = "Змінна number має значення 2";
+//     console.log('Змінна number має значення 2');
 //     break;
-
 //   case 3:
-//     message = "Змінна number має значення 3";
+//     console.log('Змінна number має значення 3');
 //     break;
-
+//   case 4:
+//     console.log('Змінна number має значення 4');
+//     break;
 //   default:
-//     message = "Змінна number має більше значення ніж 3";
+//     console.log('більше 4');
 //     break;
 // }
 
-// const number = 2;
+// const userBrouser = 'Mozilla';
 
-// switch (number) {
-//   case 1:
-//     console.log("Змінна number має значення 1");
+// switch (userBrouser) {
+//   //userBrouser === 'Chrome'
+//   case 'Chrome':
+//     console.log('Браузер Chrome');
 //     break;
-//   case 2:
-//     console.log("Змінна number має значення 2");
+//   //userBrouser === 'Mozilla'
+//   case 'Mozilla':
+//     console.log('Браузер Mozilla');
 //     break;
-//   case 3:
-//     console.log("Змінна number має значення 3");
+//   case 'IE':
+//     console.log('Браузер IE');
 //     break;
 //   default:
-//     console.log("Змінна number має більше значення ніж 3");
+//     console.log('Вашого браузера в нашому скиску немає');
+//     break;
+// }
+
+// const min = 27;
+
+// const inTime = true;
+
+// switch (inTime) {
+//   case min >= 0 && min < 15:
+//     console.log('перша чверть години');
+//     break;
+//   case min >= 15 && min < 30:
+//     console.log('друга чверть години');
+//     break;
+//   case min >= 30 && min < 45:
+//     console.log('третя чверть години');
+//     break;
+//   case min >= 45 && min < 60:
+//     console.log('четверта чверть години');
+//     break;
+//   default:
+//     console.log('Вийшли за діапазон години!');
 // }
 
 // if (number > 0) {
@@ -198,63 +216,6 @@
 //   console.log(-1);
 // } else {
 //   console.log(0);
-// }
-// const min = 10;
-
-// const inTime = true;
-// console.log(inTime === min >= 0 && min < 15);
-// switch (inTime) {
-//   case min >= 0 && min < 15:
-//     console.log("перша чверть години");
-//     break;
-//   case min >= 15 && min < 30:
-//     console.log("друга чверть години");
-//     break;
-//   case min >= 30 && min < 45:
-//     console.log("третя чверть години");
-//     break;
-//   case min >= 45 && min < 60:
-//     console.log("черверта чверть години");
-//     break;
-
-//   default:
-//     console.log("Ви не потрапили в діапозон години!");
-//     break;
-// }
-
-// const number = Number(prompt("Введіть число між 0 та 3", ""));
-
-// switch (number) {
-//   case 0:
-//     console.log("Ви ввели число 0");
-//     break;
-
-//   case 1:
-//     console.log("Ви ввели число 1");
-//     break;
-
-//   case 2:
-//     console.log("Ви ввели число 2");
-//     break;
-
-//   case 3:
-//     console.log("Ви ввели число 3");
-//     break;
-
-//   default:
-//     console.log("Ви ввели якесь інше число");
-// }
-
-// if (number === 0) {
-//   console.log("Ви ввели число 0");
-// } else if (number === 1) {
-//   console.log("Ви ввели число 1");
-// } else if (number === 2) {
-//   console.log("Ви ввели число 2");
-// } else if (number === 3) {
-//   console.log("Ви ввели число  3");
-// } else {
-//   console.log("Ви ввели якесь інше число");
 // }
 
 /*
@@ -294,9 +255,9 @@
 //     ? "Немає логіна"
 //     : "Ми вас не знаєм";
 
-let message = login === "Співробітник" ? "Привіт" : "Ви не співробітник";
-console.log(message);
-const login = prompt("Введіть логін!");
+// let message = login === 'Співробітник' ? 'Привіт' : 'Ви не співробітник';
+// console.log(message);
+// const login = prompt('Введіть логін!');
 
 // let message = "Ми вас не знаєм!!!";
 
