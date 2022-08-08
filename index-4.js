@@ -4,18 +4,18 @@
 ? замість набору незалежних аргументів.
 */
 
-// function calcBMI({ weight = '', height = '' } = {}) {
-//   //   console.log(obj);
-//   // { weight = '', height = '' } = {}
-//   //   const { weight = '', height = '' } = obj;
-//   //   console.log(weight);
-//   //   console.log(height);
+function calcBMI({ weight = '', height = '' } = {}) {
+  //   console.log(obj);
+  // { weight = '', height = '' } = {}
+  //   const { weight = '', height = '' } = obj;
+  //   console.log(weight);
+  //   console.log(height);
 
-//   const numericWeight = Number.parseFloat(weight.replace(',', '.'));
-//   const numericHeight = Number.parseFloat(height.replace(',', '.'));
+  const numericWeight = Number.parseFloat(weight.replace(',', '.'));
+  const numericHeight = Number.parseFloat(height.replace(',', '.'));
 
-//   return Number((numericWeight / numericHeight ** 2).toFixed(1));
-// }
+  return Number((numericWeight / numericHeight ** 2).toFixed(1));
+}
 
 // Було
 // console.log(calcBMI());
@@ -30,7 +30,7 @@
 //   })
 // );
 
-// calcBMI();
+// console.log(calcBMI());
 // console.log(
 //   calcBMI({
 //     weight: '68,3',
@@ -318,31 +318,31 @@ const people4 = [
 ];
 //немає нарциса'
 
-//Нарциса знають всі, нарцис незнає нікого
+// //Нарциса знають всі, нарцис незнає нікого
 
-function findNar(peoples) {
-  let narName = '';
-  for (const { name, know } of peoples) {
-    if (know.length === 0) {
-      narName = name;
-      break;
-    }
-  }
-  if (narName === '') {
-    ('Нарциса немає!');
-  }
-  for (const { name, know } of peoples) {
-    if (name === narName) {
-      continue;
-    }
-    if (!know.includes(narName)) {
-      console.log('Нарциса немає!');
-      return;
-    }
-  }
-  console.log(`Нарцис -- ${narName}`);
-}
-findNar(people);
-findNar(people2);
-findNar(people3);
-findNar(people4);
+// function findNar(peoples) {
+//   let narName = '';
+//   for (const { name, know } of peoples) {
+//     if (know.length === 0) {
+//       narName = name;
+//       break;
+//     }
+//   }
+//   if (narName === '') {
+//     ('Нарциса немає!');
+//   }
+//   for (const { name, know } of peoples) {
+//     if (name === narName) {
+//       continue;
+//     }
+//     if (!know.includes(narName)) {
+//       console.log('Нарциса немає!');
+//       return;
+//     }
+//   }
+//   console.log(`Нарцис -- ${narName}`);
+// }
+// findNar(people);
+// findNar(people2);
+// findNar(people3);
+// findNar(people4);

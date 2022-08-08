@@ -1,27 +1,20 @@
 'use strict';
 
 const logFunction = function ({
-  firstName,
-  lastName,
-  age,
-  gender,
-  userEmail: mail = 'usermail@gmail.com',
-  userPhoneNumber: number = '444 555 666',
-}) {
-  // console.log(userInfo);
-
-  // const { firstName, lastName, age, gender, userEmail, userPhoneNumber } =
-  //   userInfo;
-  console.log(firstName);
+  firstName: name = 'some name',
+  lastName = 'some last name',
+  age = '16',
+  gender = 'some gender',
+  userEmail: email = 'someMail@gmail.com',
+} = {}) {
+  console.log(name);
   console.log(lastName);
-  console.log(age);
   console.log(gender);
-  console.log(mail);
-  console.log(number);
-  // const { firstName, lastName, age, gender, userEmail, userPhoneNumber } =
-  //   userInfo;
-  // console.log(firstName, lastName, age, gender, userEmail, userPhoneNumber);
+  console.log(age);
+  console.log(email);
 };
+
+// logFunction();
 
 logFunction({
   firstName: 'Amelia',

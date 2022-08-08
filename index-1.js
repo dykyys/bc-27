@@ -31,8 +31,9 @@
 // console.log(allNumbers);
 
 //* Розпилення масиву у функцію
-// const numbers = [1, 2, 3, 4, 5];
+const numbers = [1, 2, 3, 4, 5];
 
+// console.log({ ...numbers });
 // console.log(Math.max(...numbers));
 // console.log(Math.min(...numbers));
 
@@ -46,7 +47,7 @@
 
 // const obj = Object.assign(o1, o2, o3);
 // console.log(obj); // { a: 1, b: 2, c: 3 }
-// console.log(o1); // { a: 1, b: 2, c: 3 }, изменился и сам целевой объект.
+// console.log(o1); // { a: 1, b: 2, c: 3 }, змінився і сам об'єкт
 
 // const animal = {
 //   legs: 4,
@@ -54,11 +55,16 @@
 
 // const cat = Object.create(animal);
 // cat.name = 'Kiwi';
+// cat.age = 3;
 // console.log(cat);
+
+//https://lodash.com/docs/4.17.15#cloneDeep
+
 // const newCat = _.cloneDeep(cat);
 // const newCat = Object.assign(cat);
-// const newCat2 = { ...cat };
+// const newCat = { ...cat };
 // console.log(newCat);
+// console.log(cat);
 // console.log(newCat2);
 
 // const user = {
@@ -71,7 +77,7 @@
 
 // console.log('user: ', user);
 // console.log('user2: ', user2);
-// // console.log(user === user2);
+// console.log(user === user2);
 
 // user2.firstName = 'Birdie';
 // console.log('---------------------');
@@ -80,11 +86,19 @@
 
 //* Розпилення складних типів
 
+//При розпиленні виокнується опверхневе копіювання.
+//Якщо є складні типи даних, записується на них посилання
+//*********** */
+//При _.cloneDeep виконується глибоке копіювання
+//Якщо є складні типи даних, вони також копіюються в нові,
+//такі самі
+
 // const user = {
 //   firstName: 'Jonathan',
 //   lastName: 'Barnett',
 //   age: 30,
 //   someArr: [1, 2, 3, 4],
+//   location: { lat: 15, lon: 20 },
 // };
 
 // const user2 = _.cloneDeep(user);
@@ -93,6 +107,8 @@
 // console.log('user2: ', user2);
 // console.log(user === user2);
 // user2.someArr.push(10);
+// user2.location.lat = 30;
+// user2.lastName = 30;
 
 // console.log('user: ', user);
 // console.log('user2: ', user2);
@@ -101,31 +117,19 @@
  * Операція rest
  */
 
-//? Напишіть функцію sum, яка додає довільну кількість аргументів які більше вказаного числа
-// const sum = function (num, ...args) {
-//   //   console.log(num);
-//   //   console.log(args);
-//   let total = 0;
-//   for (const item of args) {
-//     // if (item > num) {
-//     // console.log(typeof item !== 'number' || Number.isNaN(item));
-//     // // console.log(typeof item);
-//     // console.log(item);
-//     // console.log('------------');
-//     if (typeof item !== 'number' || Number.isNaN(item)) {
-//       continue;
-//     }
-//     // console.log(Number.isNaN(item));
+//? Напишіть функцію sum, яка додає довільну кількість аргументів які більше вказаного числа, вказане число передається першим аргументом
 
-//     // console.log(typeof item);
-//     total += item;
-//     // }
-//   }
-//   console.log(total);
-// };
+const sum = function (num, num2, num3, ...args) {
+  let total = 0;
+  for (const number of args) {
+    if (number < num) {
+      continue;
+    }
+    total += number;
+  }
+  return total;
+};
 
-// const numbers = [1, 2, 3, 4];
-// sum(5, 6, 4, NaN, 14, 85, 2, 3, 'df', 'df', 'dfs', NaN);
-// console.log(sum(...numbers));
-// console.log(sum(10, 20, 30));
-// console.log(typeof NaN);
+const totalArgs = sum(20, 3, 5, 7, 8, 9, 23, 56, 7, 342, 647);
+
+console.log(totalArgs);

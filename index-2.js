@@ -15,7 +15,8 @@
 ? властивості age привласнить змінну userAge.
 ? властивості isAdmin присвоє змінну isAdmin (false, якщо немає такої властивості)
 // */
-// const { firstName, age: userAge = 18, isAdmin = false } = user;
+
+// const { firstName, age: userAge, isAdmin = false } = user;
 
 // console.log('firstName: ', firstName);
 // console.log('userAge: ', userAge);
@@ -25,54 +26,56 @@
  * Глибока деструктуризація об'єктів
  */
 
+// const defaultImg =
+//   'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+
 // const team = {
 //   number: 4,
-//   // flag: './images/flag.jpg',
+//   //   flag: './images/flag.jpg',
 //   employees: ['Anton', 'Oleg', 'Ronnie', 'Carr'],
 //   langs: {
+//     location: { lat: 15, lon: 20 },
 //     original: 'uk',
 //     secondary: 'pl',
 //   },
 // };
-// const defaultImg =
-//   'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
-// const {
-//   number,
-//   flag = defaultImg,
-//   employees,
-//   langs: { original: originalLang, secondary: secondaryLang = 'en' },
-// } = team;
-// const { original, secondary } = langs;
-// console.log(originalLang);
-// console.log(secondaryLang);
-// const { original: originalLang, secondary: secondaryLang } = langs;
 
 // const {
 //   number,
-//   flag,
+//   flag: counriFlag = defaultImg,
 //   employees,
-//   langs: { original: originalLang, secondary: secondaryLang },
+//   langs: { original: originLang, secondary: secondLang },
 // } = team;
 
-// console.log('number: ', number);
-// console.log('flag: ', flag);
-// console.log('employees: ', employees);
-// console.log('originalLang: ', originalLang);
-// console.log('secondaryLang: ', secondaryLang);
+// console.log(counriFlag);
 
 /*
  * Деструктуризація масивів
  */
 
-// const names = ['Herbert Todd', 'Belle Soto', 'Roger Marsh', 'Ethan Lindsey'];
-// const [user1, , , user2] = names;
-// const user3 = names[0];
+const names = ['Herbert Todd', 'Belle Soto', 'Roger Marsh', 'Ethan Lindsey'];
 
+// const [user1, , , user4] = names;
 // console.log(user1);
-// console.log(user3);
-// console.log(user2);
 
-// const rgb = [0, 255, 34];
+// console.log(user4);
+
+// const user = {
+//   name: 'mango',
+//   age: 21,
+//   lastName: 'Todd',
+// };
+
+// const entry = Object.entries(user);
+
+// for (const [key, value] of entry) {
+//   console.log(key);
+//   console.log(value);
+//   console.log('----------');
+// }
+
+// const rgb = [250, 45, 24];
+
 // const [red = 0, green = 0, blue = 0] = rgb;
 
 // console.log('red: ', red);
@@ -94,35 +97,27 @@
 //   Mary: 2500,
 // };
 
-// console.log(Object.entries(salaries));
+// // console.log(Object.entries(salaries));
 
-// [
-//   ['John', 100],
-//   ['Pete', 300],
-//   ['Mary', 2500]
-// ]
+// // [
+// //   ['John', 100],
+// //   ['Pete', 300],
+// //   ['Mary', 2500]
+// // ]
 
 // const topSalary = function (salaries) {
 //   const salariesArr = Object.entries(salaries);
-//   let firstItemsalariesArr = salariesArr[0];
-//   // let maxSalary = salariesArr[0][1];
-//   // let employerName = salariesArr[0][0];
-//   let maxSalary = firstItemsalariesArr[1];
-//   let employerName = firstItemsalariesArr[0];
 
-//   for (const emlpoyer of salariesArr) {
-//     // console.log(emlpoyer);
-//     // console.log(emlpoyer[1]);
-//     // console.log(emlpoyer[0]);
-//     if (emlpoyer[1] > maxSalary) {
-//       maxSalary = emlpoyer[1];
-//       employerName = emlpoyer[0];
+//   let maxSalary = salariesArr[0][1];
+//   let employName = salariesArr[0][0];
+
+//   for (const [name, salary] of salariesArr) {
+//     if (salary > maxSalary) {
+//       maxSalary = salary;
+//       employName = name;
 //     }
-//     // if (salary > maxSalary) {
-//     //   maxSalary = salary;
-//     //   employerName = name;
-//     // }
 //   }
-//   console.log(employerName);
+//   console.log(employName);
 // };
+
 // topSalary(salaries);
