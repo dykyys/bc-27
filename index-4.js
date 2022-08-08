@@ -132,30 +132,3 @@ function getNotAdultFilms(films) {
   return nonAdultFilms;
 }
 console.log(getNotAdultFilms(filmoteka));
-
-//Деструктуризація
-
-const user = {
-  name: 'Jacques Gluke',
-  tag: 'jgluke',
-  stats: {
-    followers: 5603,
-    views: 4827,
-  },
-};
-
-// const {
-//   name: userName,
-//   tag,
-//   stats: { followers, views, likes: userLikes = 0 },
-// } = user;
-
-// console.log(userName); // Jacques Gluke
-// console.log(tag); // jgluke
-// // console.log(stats); // jgluke
-// console.log(followers);
-// console.log(views);
-// console.log(userLikes);
-// console.log(followers); // 5603
-// console.log(userViews); // 4827
-// console.log(userLikes); // 1308
