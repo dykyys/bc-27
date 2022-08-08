@@ -31,9 +31,9 @@ const user = {
 
 // const userKeys = Object.keys(user);
 
-for (const key of Object.keys(user)) {
-  console.log(`${key} : ${user[key]}`);
-}
+// for (const key of Object.keys(user)) {
+//   console.log(`${key} : ${user[key]}`);
+// }
 //----------------------
 
 /*
@@ -65,21 +65,21 @@ const salaries = {
 */
 
 const stones = [
-  { name: 'Ізумруд', price: 1300, quantity: 4 },
+  { name: 'Смарагд', price: 1300, quantity: 4 },
   { name: 'Діамант', price: 2700, quantity: 3 },
   { name: 'Сапфір', price: 400, quantity: 7 },
   { name: 'Щебінь', price: 200, quantity: 2 },
 ];
 
-// const calcTotalPrice = function (stones, stoneName) {
+// const cacalcTotalPrice = function (stones, stoneName) {
 //   for (const { name, price, quantity } of stones) {
 //     if (name === stoneName) {
 //       return price * quantity;
 //     }
 //   }
-//   return 'Такого камня не знайдено!';
 // };
-// console.log(calcTotalPrice(stones, 'Діамант'));
+
+// console.log(cacalcTotalPrice(stones, 'Сапфір'));
 
 /*
 ? Напиши скрипт управління особистим кабінетом інтернет-банку.
@@ -110,21 +110,12 @@ const account = {
    * Приймає суму та тип транзакції.
    */
   createTransaction(amount, type) {
-    // return {
-    //   amount: amount,
-    //   type: type,
-    //   id: this.generateId(),
-    // };
-    // return {
-    //   amount,
-    //   type,
-    //   id: this.generateId(),
-    // };
+    return { amount, type, id: this.generateId() };
   },
 
   // Генерація id для транзакції
   generateId() {
-    // return (this.startId += 1);
+    return (this.startId += 1);
   },
 
   /*
@@ -134,12 +125,10 @@ const account = {
    * після чого додає його в історію транзакцій
    */
   deposit(amount) {
-    // const depositTransaction = this.createTransaction(
-    //   amount,
-    //   Transaction.DEPOSIT
-    // );
-    // this.transactions.push(depositTransaction);
-    // this.balance += amount;
+    const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+
+    this.transactions.push(transaction);
+    this.balance += amount;
   },
 
   /*
@@ -152,35 +141,36 @@ const account = {
    * про те, що зняття такої суми не можливе, недостатньо коштів.
    */
   withdraw(amount) {
-    // if (amount > this.balance) {
-    //   alert(`Зняття такої суми неможливо, ви можете зняти ${this.balance}`);
-    //   return;
-    // }
-    // const withdrawTransaction = this.createTransaction(
-    //   amount,
-    //   Transaction.WITHDRAW
-    // );
-    // this.transactions.push(withdrawTransaction);
-    // this.balance -= amount;
+    if (amount > this.balance) {
+      console.log(`Недостатньо коштів!`);
+      return;
+    }
+
+    const transaction = this.createTransaction(amount, Transaction.WITHDRAW);
+
+    this.balance -= amount;
+    this.transactions.push(transaction);
   },
 
   /*
    *Метод повертає поточний баланс
    */
   getBalance() {
-    // return this.balance;
+    return this.balance;
   },
 
   /*
    * Метод шукає та повертає об'єкт транзації по id
    */
   getTransactionDetails(id) {
-    // for (const item of this.transactions) {
-    //   if (item.id === id) {
-    //     return item;
-    //   }
-    // }
-    // return `Операції з id ${id} не знайдено!`;
+    const { transactions } = this;
+    for (const transaction of transactions) {
+      if (transaction.id === id) {
+        return transaction;
+      }
+    }
+
+    return `Операції з id ${id} не знайдено!`;
   },
 
   /*
@@ -188,28 +178,30 @@ const account = {
    * певного типу транзакції з усієї історії транзакцій
    */
   getTransactionTotal(typeOperation) {
-    // let sum = 0;
-    // for (const { type, amount } of this.transactions) {
-    //   if (typeOperation === type) {
-    //     sum += amount;
-    //   }
-    // }
-    // return `Операцій по ${typeOperation} було здійснено на суму ${sum}`;
+    const { transactions } = this;
+    let sum = 0;
+
+    for (const { type, amount } of transactions) {
+      if (type === typeOperation) {
+        sum += amount;
+      }
+    }
+
+    return `Операцій по ${typeOperation} було здійснено на суму ${sum}`;
   },
 };
 
-// account.deposit(200);
-// account.deposit(300);
-// account.deposit(500);
-// account.deposit(1500);
-// account.deposit(2500);
-// account.withdraw(700);
-// account.withdraw(200);
+account.deposit(200);
+account.deposit(300);
+account.deposit(500);
+account.deposit(1500);
+account.deposit(2500);
+account.withdraw(700);
+account.withdraw(200);
 
 // console.log('Balance', account.getBalance());
-// console.log(account.transactions);
-// console.log(account.getTransactionDetails(5));
+console.table(account.transactions);
 // console.log(account.getTransactionDetails(10));
 
-// console.log(account.getTransactionTotal(Transaction.DEPOSIT));
-// console.log(account.getTransactionTotal(Transaction.WITHDRAW));
+console.log(account.getTransactionTotal(Transaction.DEPOSIT));
+console.log(account.getTransactionTotal(Transaction.WITHDRAW));
