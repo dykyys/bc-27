@@ -9,25 +9,19 @@ const textRef = document.querySelector('.text');
 const divRef = document.querySelector('.div');
 const section = document.querySelector('.section');
 
-divRef.addEventListener(
+window.addEventListener(
   'click',
   event => {
-    console.group('Listener on p(2- занурення подія на div)');
+    console.group('Listener on window ( 5 -сплиття, подія на window)');
     console.log('target', event.target);
     console.log('currentTarget', event.currentTarget);
     console.groupEnd();
-  },
-  { capture: true }
+  }
+  // { capture: true, once: true }
 );
 
-divRef.addEventListener('click', event => {
-  console.group('Listener on p(4 - сплиття, подія на div)');
-  console.log('target', event.target);
-  console.log('currentTarget', event.currentTarget);
-  console.groupEnd();
-});
-section.addEventListener('click', event => {
-  console.group('Listener on p(5 - сплиття, подія на секції)');
+document.addEventListener('click', event => {
+  console.group('Listener on document (4 - сплиття, подія на document)');
   console.log('target', event.target);
   console.log('currentTarget', event.currentTarget);
   console.groupEnd();
@@ -36,16 +30,28 @@ section.addEventListener('click', event => {
 section.addEventListener(
   'click',
   event => {
-    console.group('Listener on p(1- занурення, подія на секції)');
+    console.group('Listener on section (3 - сплиття, подія на секції)');
     console.log('target', event.target);
     console.log('currentTarget', event.currentTarget);
     console.groupEnd();
-  },
-  { capture: true }
+    // event.stopPropagation();
+  }
+  // { capture: true, once: true }
+);
+
+divRef.addEventListener(
+  'click',
+  event => {
+    console.group('Listener on div (2 - сплиття, подія на div)');
+    console.log('target', event.target);
+    console.log('currentTarget', event.currentTarget);
+    console.groupEnd();
+  }
+  // { capture: true, once: true }
 );
 
 textRef.addEventListener('click', event => {
-  console.group('Listener on p(3 - target, подія на р )');
+  console.group('Listener on p (1 -  сплиття, подія на абзаці)');
   console.log('target', event.target);
   console.log('currentTarget', event.currentTarget);
   console.groupEnd();
