@@ -1,27 +1,32 @@
 'use strict';
-// import 'material-icons/iconfont/material-icons.css';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { getWeatherByCityName } from './weatherAPI';
+import { createMarkup } from './createMarkup';
+import { setBackgroung } from './setBackground';
+import refs from './refs';
 
-// import { fetchWeatherByCityName } from './weather-api';
-// import { createWeatherMarkup } from '../templates/weather-card';
-// import { setBackground } from './setBackground';
-// const formRef = document.querySelector('.js-search-form');
+const handleSubmit = event => {
+  event.preventDefault();
 
-// const handleSubmit = event => {
-//   event.preventDefault();
-//   const { elements } = event.currentTarget;
-//   const value = elements['user_country'].value.trim();
+  const { user_country } = event.target.elements;
+  const searchValue = user_country.value.trim();
 
-//   if (!value) {
-//     Notify.failure('Can not be empty!');
-//     return;
-//   }
-//   setBackground(value);
-//   fetchWeatherByCityName(value)
-//     .then(createWeatherMarkup)
-//     .catch(error => Notify.failure(`City ${value} not found!`), {
-//       timeout: 1500,
-//     });
-//   event.currentTarget.reset();
-// };
-// formRef.addEventListener('submit', handleSubmit);
+  if (!searchValue) {
+    Notify.failure('Введіть місто для пошуку погоди!');
+    return;
+  }
+
+  setBackgroung(searchValue);
+
+  getWeatherByCityName(searchValue)
+    .then(data => {
+      const markup = createMarkup(data);
+      refs.weatherBox.innerHTML = markup;
+    })
+    .catch(error => {
+      // Error handling
+    });
+  Notify.success(`Погода в ${searchValue} на сьогодні!`);
+};
+
+refs.form.addEventListener('submit', handleSubmit);
