@@ -19,6 +19,8 @@ const handleSubmit = event => {
 
   unsplashAPI.query = searchQuery;
 
+  unsplashAPI.resetPage();
+
   unsplashAPI
     .getPhotos()
     .then(({ results, total_pages }) => {

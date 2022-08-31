@@ -40,6 +40,10 @@ export default class UnsplashAPI {
     this.#totaPages = newTotal;
   }
 
+  resetPage() {
+    this.#page = 1;
+  }
+
   incrementPage() {
     this.#page += 1;
   }
