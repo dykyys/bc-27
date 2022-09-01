@@ -8,4 +8,5 @@ export const getRefs = () => ({
   openModalBtn: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
+  allContacts: document.querySelector('.js-get-contacts'),
 });

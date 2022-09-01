@@ -1,29 +1,25 @@
 const BASE_URL = 'https://62d459315112e98e484e5213.mockapi.io';
 
 // GET -> /contacts
-export const getContacts = () => {
+export const getContacts = async () => {
   const URL = `${BASE_URL}/contacts`;
-  return fetch(URL).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+
+  const response = await fetch(URL);
+  const data = await response.json();
+  return data;
 };
 
 // GET -> /contacts/:id
-export const getContactById = id => {
+export const getContactById = async id => {
   const URL = `${BASE_URL}/contacts/${id}`;
-  return fetch(URL).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+
+  const response = await fetch(URL);
+
+  return await response.json();
 };
 
 // POST -> /contacts
-export const createContact = contact => {
+export const createContact = async contact => {
   const options = {
     method: 'POST',
     body: JSON.stringify(contact),
@@ -34,16 +30,12 @@ export const createContact = contact => {
 
   const URL = `${BASE_URL}/contacts`;
 
-  return fetch(URL, options).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+  const response = await fetch(URL, options);
+  return await response.json();
 };
 
 // PUT -> /contacts/:id
-export const updateContact = newContact => {
+export const updateContact = async newContact => {
   const options = {
     method: 'PUT',
     body: JSON.stringify(newContact),
@@ -54,12 +46,9 @@ export const updateContact = newContact => {
 
   const URL = `${BASE_URL}/contacts/${newContact.id}`;
 
-  return fetch(URL, options).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+  const response = await fetch(URL, options);
+
+  return await response.json();
 };
 
 // PATCH -> /contacts/:id
@@ -83,16 +72,13 @@ export const updateContact = newContact => {
 // };
 
 // DELETE -> /contacts/:id
-export const deleteContact = id => {
+export const deleteContact = async id => {
   const option = {
     method: 'DELETE',
   };
   const URL = `${BASE_URL}/contacts/${id}`;
 
-  return fetch(URL, option).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+  const response = await fetch(URL, option);
+
+  return await response.json();
 };

@@ -1,8 +1,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import throttle from 'lodash.throttle';
-import localStorApi from './localestorage';
-import { createContact } from './service/contact.service';
-import { createCardContact } from '../templates/createCardContact';
+import localStorApi from '../localestorage';
+import { createContact } from './service/contact.serviceAXIOS';
+import { createCardContact } from '../../templates/createCardContact';
 
 import { getRefs } from './getRers';
 
@@ -11,7 +11,7 @@ const refs = getRefs();
 const LOCAL_STORAGE_KEY = 'user-data';
 initForm();
 
-const handleSabmit = event => {
+const handleSabmit = async event => {
   event.preventDefault();
   const { name, email, phone } = event.target.elements;
 
@@ -20,7 +20,7 @@ const handleSabmit = event => {
     return;
   }
 
-  const userData = {};
+  const userData = { name: name.value };
 
   const formData = new FormData(refs.form);
 
@@ -28,16 +28,19 @@ const handleSabmit = event => {
     userData[name] = value;
   });
 
-  createContact(userData).then(data => {
+  try {
+    const data = await createContact(userData);
     const markup = createCardContact(data);
     refs.contactContainer.insertAdjacentHTML('afterbegin', markup);
-  });
 
-  toggleModal();
+    toggleModal();
 
-  event.currentTarget.reset();
-  localStorApi.remove(LOCAL_STORAGE_KEY);
-  // Notify.success("Дякуємо за зворотній зв'язок!");
+    event.target.reset();
+    localStorApi.remove(LOCAL_STORAGE_KEY);
+    Notify.success("Дякуємо за зворотній зв'язок!");
+  } catch (error) {
+    Notify.failure(`${error.message}`);
+  }
 };
 
 const handleInput = event => {
